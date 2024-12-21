@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="icon" href="/static/assets/WealthWise.svg">
+    {% set active_page = active_page|default('index') -%}
+
+    <link rel="stylesheet" href="{{url_for('static',filename='dist/css/output.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#dim-screen').fadeOut(200);
+            $('#dim-screen').addClass('z-50');
+        });
+    </script>
+</head>
+<body>
+<div id="dim-screen">
+
+</div>
+{% set navigation_bar = [
+('/', 'index', 'Home'),
+('/about/', 'about', 'About'),
+('/expenses/', 'expenses', 'Expenses')
+] -%}
+{% set wiki = [
+('/wiki/', 'wiki', 'Home'),
+('/wiki/fico/', 'fico', 'What is FICO?'),
+('/wiki/students/', 'students', "Students' Guide"),
+('/wiki/investing/', 'investing', "Investing Guide"),
+] -%}
+
+<nav class="navbar navbar-expand-lg bg-white m-0 px-2 sm:px-4 py-2.5 shadow-md relative flex items-center w-screen justify-between">
+    <div class="container flex flex-wrap items-center justify-between ">
+        <a href="/" class="flex items-center ml-10 align-left">
+            <img src="/static/assets/WealthWise2x.png" class="logo h-9 mr-3" alt="WealthWise Logo">
+            <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">WealthWise</span>
+        </a>
+        <div class="flex md:order-2">
+            <button data-collapse-toggle="navbar-cta" type="button"
+                    class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-cta" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                          clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
+                {% for href, id, caption in navigation_bar %}
+                <li>
+                    <a{% if id==active_page %} class="nav-item active" {% else %} class = "nav-item" {% endif %}
+                    href="{{href|e}}">{{caption|e}}</a>
+                </li>
+                {% endfor %}
+                <div class="group">
+                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
+                            class="nav-item flex items-center group">
+                        Wiki
+                        <svg class="w-5 h-5 ml-0 fill-current transform -rotate-90 group-hover:rotate-0 transition duration-150 ease-in-out"
+                             aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                  clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownNavbar"
+                         class="z-10 hidden font-normal bg-white divide-y divide-gray-100 shadow w-40">
+                        <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            {% for href, id, caption in wiki %}
+                            <li>
+                                <a class="dropdown-item" href="{{href|e}}">{{caption|e}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
+</body>
+</html>

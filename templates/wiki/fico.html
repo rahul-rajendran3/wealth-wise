@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{% set active_page = "fico" %}
+{% block title %}WealthWise - Fico Score{% endblock %}
+{% block content %}
+
+<section class="bg-white">
+    <div class="gap-16  py-4 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-rows-1 lg:grid-cols-2 lg:py-16 lg:px-6">
+        <div class="font-light text-gray-500 sm:text-lg col-span-1">
+            <h2 class="heading">What is a FICO
+                Score?</h2>
+            <p class="mb-4">A FICO score (A.K.A. credit score) is like a report card for your money- Just like how your
+                report card shows how
+                well you do in school, a FICO score shows how well you handle money and pay back loans. FICO Scores
+                range
+                from 300 to 850 based on how trustworthy the bank considers you to be. It is a measure of your payment
+                history, amounts owed, credit length, inquiries, and credit
+                mix. </p>
+            <h2 class="heading">Why does it matter?</h2>
+            <p class="mb-4">If you are applying for a new credit card or trying to take out a loan, lenders can quickly
+                assess your credit history using your FICO score. If your FICO score is too low, it may be more
+                difficult
+                for you to get approved for loans or credit cards, and if you are approved, you may be offered worse
+                terms, such as higher interest rates. This can make it more expensive to borrow money, and can also
+                limit your
+                to make large purchases, such as a car or a house. Additionally, landlords and employers may also check
+                your
+                credit score as a part of their background check process, so a low score could make it harder for you to
+                rent
+                an apartment or get a job, since FICO scores are a measure of how responsible you are with your money.
+            </p>
+            <h2 class="heading">How do I improve my
+                score?</h2>
+            <p class="mb-4"> To improve your FICO score, here are some categories to consider:</p>
+            <div class="mb-4 border-b border-gray-200">
+                <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab"
+                    data-tabs-toggle="#myTabContent" role="tablist">
+                    <li class="mr-2" role="presentation">
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab"
+                                data-tabs-target="#profile" type="button" role="tab" aria-controls="profile"
+                                aria-selected="false">History
+                        </button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="tab-button"
+                                id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
+                                aria-controls="dashboard" aria-selected="false">Amounts Owed
+                        </button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="tab-button"
+                                id="settings-tab" data-tabs-target="#settings" type="button" role="tab"
+                                aria-controls="settings" aria-selected="false">Credit Length
+                        </button>
+                    </li>
+                    <li class="mr-2" role="presentation">
+                        <button class="tab-button"
+                                id="swanky-tab" data-tabs-target="#swanky" type="button" role="tab"
+                                aria-controls="settings" aria-selected="false">Credit Mix
+                        </button>
+                    </li>
+                    <li role="presentation">
+                        <button class="tab-button"
+                                id="contacts-tab" data-tabs-target="#contacts" type="button" role="tab"
+                                aria-controls="contacts" aria-selected="false">Inquiries
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div id="myTabContent">
+                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel"
+                     aria-labelledby="profile-tab">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Make sure to pay your lender(s) on time, every
+                        time. <strong class="font-medium text-gray-800 dark:text-white">In fact, 35% of your FICO score
+                            is from this category</strong>.
+                        <class
+                        = "text-sm text-gray-500 dark:text-gray-400"> This makes up the largest component as it
+                        shows that you are a trustable and responsible candidate when it comes to taking loans.
+                    </p>
+                </div>
+                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel"
+                     aria-labelledby="dashboard-tab">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Revolving utilization is calculated as a
+                        percentage of the balance you owe out of your total credit line. It is suggested to keep the
+                        credit utilization at 30% or less whenever possible. <strong
+                                class="font-medium text-gray-800 dark:text-white"> This makes up 30% of your FICO
+                            score. </strong></p>
+                </div>
+                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel"
+                     aria-labelledby="settings-tab">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">The longer your credit history, the better.
+                        Naturally, with time, the score contribution of this section will increase.<strong
+                                class="font-medium text-gray-800 dark:text-white"> A good credit length is considered to
+                            be 7 years. This makes up 15% of your FICO score</strong>. It is still important that you
+                        are making credit payments on-time. </p>
+                </div>
+                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="swanky" role="tabpanel"
+                     aria-labelledby="swanky-tab">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Having multiple credit types shows that you are
+                        responsible, which improves your FICO score. On top of that, this can help lower your revolving
+                        utilization.<strong class="font-medium text-gray-800 dark:text-white"> This makes up 10% of your
+                            FICO score</strong>. </p>
+                </div>
+                <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="contacts" role="tabpanel"
+                     aria-labelledby="contacts-tab">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">When you apply for credit, the lender will
+                        perform what is known as a hard inquiry (credit check). This will temporarily reduce your credit
+                        score, and stay for 24 months. <strong class="font-medium text-gray-800 dark:text-white"> This
+                            makes up 10% of your FICO score</strong>. </p>
+                </div>
+            </div>
+        </div>
+        <div class="shadow-lg rounded-lg overflow-hidden col-start-2 align-top p-1 w-full">
+            <div class="flex justify-between">
+                <label for="default-input"
+                       class="flex-1 py-3 px-5 text-sm font-medium rounded-sm text-gray-900 bg-gray-50">Please enter
+                    your FICO (credit) score for more insight:</label>
+                <input type="number" id="default-input"
+                       class="bg-gray-50 py-1.5 border border-gray-300 text-black text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 bg-gray-50 relative"
+                       onkeydown="if (event.keyCode === 13)
+                        document.getElementById('btnSearch').click()">
+                <input type="button"
+                       id="btnSearch"
+                       value=""
+                       onclick="displayCreditStats();"/>
+            </div>
+            <div class="py-3 px-5 font-medium bg-gray-50">FICO Score Breakdown</div>
+            <canvas class="p-5" id="chartPie"></canvas>
+        </div>
+    </div>
+
+
+    <!-- Required chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Chart pie -->
+
+    <script>
+        function displayCreditStats() {
+            let x = document.getElementById("default-input").value;
+            var y = "";
+            var p = 0;
+            if(x < 579) {
+                y = "Poor";
+                p = 16;
+            } else if(x < 669) {
+                y = "Fair";
+                p = 17;
+            } else if(x < 739) {
+                y = "Good";
+                p = 21;
+            } else if(x < 799) {
+                y = "Very Good";
+                p = 25;
+            } else {
+                y = "Exceptional";
+                p = 21;
+            }
+            window.alert("A FICO score of "+x+" is considered: "+y+"\n"+p+"% of Americans share your score.");
+        }
+        const dataPie = {
+            labels: ["History", "Amounts Owed", "Credit Length", "Inquiries", "Credit Mix"],
+            datasets: [
+                {
+                    label: "FICO Score Breakdown",
+                    data: [35, 30, 15, 10, 10],
+                    backgroundColor: [
+                        "rgb(61, 75, 235)",
+                        "rgb(100, 111, 239)",
+                        "rgb(131, 140, 242)",
+                        "rgb(156, 163, 245)",
+                        "rgb(176, 181, 247)"
+                    ],
+                    hoverOffset: 4,
+                },
+            ],
+        };
+
+        const configPie = {
+            type: "pie",
+            data: dataPie,
+            options: {},
+        };
+
+        var chartBar = new Chart(document.getElementById("chartPie"), configPie);
+    </script>
+</section>
+{% endblock %}
